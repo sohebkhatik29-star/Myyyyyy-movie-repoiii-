@@ -1,8 +1,13 @@
+import asyncio
 import os
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-# Setup
+# Ye loop set karne wali line zaroori hai
+loop = asyncio.new_event_loop()
+asyncio.set_event_loop(loop)
+
+# Configs
 API_ID = int(os.environ.get("API_ID"))
 API_HASH = os.environ.get("API_HASH")
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
@@ -21,4 +26,3 @@ async def start(client, message):
 
 print("Bot successfully start ho gaya hai!")
 app.run()
-
